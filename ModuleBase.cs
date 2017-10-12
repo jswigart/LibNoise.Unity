@@ -64,10 +64,10 @@ namespace LibNoise
                 {
                     throw new ArgumentOutOfRangeException("Index out of valid module range");
                 }
-                if (_modules[index] == null)
-                {
-                    throw new ArgumentNullException("Desired element is null");
-                }
+                //if (_modules[index] == null)
+                //{
+                //    throw new ArgumentNullException("Desired element is null");
+                //}
                 return _modules[index];
             }
             set
@@ -77,10 +77,10 @@ namespace LibNoise
                 {
                     throw new ArgumentOutOfRangeException("Index out of valid module range");
                 }
-                if (value == null)
-                {
-                    throw new ArgumentNullException("Value should not be null");
-                }
+                //if (value == null)
+                //{
+                //    throw new ArgumentNullException("Value should not be null");
+                //}
                 _modules[index] = value;
             }
         }
