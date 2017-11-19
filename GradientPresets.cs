@@ -12,6 +12,7 @@ namespace LibNoise
 
         private static readonly Gradient _empty;
         private static readonly Gradient _grayscale;
+        private static readonly Gradient _grayscaleOpaque;
         private static readonly Gradient _rgb;
         private static readonly Gradient _rgba;
         private static readonly Gradient _terrain;
@@ -66,7 +67,16 @@ namespace LibNoise
             };
 
             // Generic gradient alpha keys
-            var alphaKeys = new List<GradientAlphaKey> {new GradientAlphaKey(1, 0), new GradientAlphaKey(1, 1)};
+            var alphaKeys = new List<GradientAlphaKey>
+            {
+                new GradientAlphaKey(1, 0),
+                new GradientAlphaKey(1, 1)
+            };
+            var alphaOpaqueKeys = new List<GradientAlphaKey>
+            {
+                new GradientAlphaKey(1, 0),
+                new GradientAlphaKey(1, 0)
+            };
 
             _empty = new Gradient();
 
@@ -78,6 +88,9 @@ namespace LibNoise
 
             _grayscale = new Gradient();
             _grayscale.SetKeys(grayscaleColorKeys.ToArray(), alphaKeys.ToArray());
+
+            _grayscaleOpaque = new Gradient();
+            _grayscaleOpaque.SetKeys(grayscaleColorKeys.ToArray(), alphaOpaqueKeys.ToArray());
 
             _terrain = new Gradient();
             _terrain.SetKeys(terrainColorKeys.ToArray(), alphaKeys.ToArray());
@@ -103,6 +116,11 @@ namespace LibNoise
             get { return _grayscale; }
         }
 
+        public static Gradient GrayscaleOpaque
+        {
+            get { return _grayscaleOpaque; }
+        }
+        
         /// <summary>
         /// Gets the RGB instance of Gradient.
         /// </summary>
